@@ -1030,3 +1030,21 @@ h1, h2, h3 {
 /* Package prices are longer than the weekly rate — keep them on one line */
 .membership-card .price-row { flex-wrap: wrap; }
 .membership-card .price-row.long .price { font-size: 3.6rem; }
+
+/* Value tiers: all three lit, glow on hover steps up with the package size */
+.membership-card.tier-1:hover {
+  box-shadow: 0 12px 40px var(--blue-glow), 0 0 0 1px var(--blue);
+}
+.membership-card.tier-2:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 56px rgba(27,163,212,0.38), 0 0 24px rgba(27,163,212,0.22), 0 0 0 1px var(--blue);
+}
+.membership-card.tier-3:hover {
+  transform: translateY(-8px);
+  border-color: var(--blue-light);
+  box-shadow: 0 20px 72px rgba(27,163,212,0.55), 0 0 40px rgba(135,206,234,0.35), 0 0 0 1px var(--blue-light);
+}
+.membership-card .price { transition: text-shadow 0.3s; }
+.membership-card.tier-1:hover .price { text-shadow: 0 0 18px rgba(27,163,212,0.35); }
+.membership-card.tier-2:hover .price { text-shadow: 0 0 24px rgba(27,163,212,0.55); }
+.membership-card.tier-3:hover .price { text-shadow: 0 0 32px rgba(135,206,234,0.75); }
