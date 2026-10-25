@@ -74,7 +74,7 @@ Churn = subscriptions ended in the month ÷ (active at start of month + new that
 ## What moves the numbers
 
 1. **Fix failed payments first.** Two-thirds of all churn so far is cards failing, not people quitting. Turn on Stripe's failed-payment emails and card-update links, and call anyone with a failed charge within 24 hours. Two members are at risk right now.
-2. **Trials are the lever you control.** Goal 1 needs about 3–4 trials booked every week from now to Christmas.
+2. **Trials are the lever you control.** Goal 1 needs about 3 trials booked every week from now to Christmas.
 3. **Prepay packages lock members through the holidays.** A 3-month or 6-month buyer can't churn in December or January.
 
 ## Progress
