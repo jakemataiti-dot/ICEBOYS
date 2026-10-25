@@ -4,7 +4,7 @@
 
 | # | Goal | Deadline | Baseline | Net growth needed |
 |---|------|----------|----------|-------------------|
-| 1 | **40 active members** | Close of business, 31 Dec 2026 | 28 (25 Oct 2026: 25 on Stripe + 3 off-Stripe) | +12 |
+| 1 | **40 active members** | Close of business, 31 Dec 2026 | 25 paying (25 Oct 2026: 22 on Stripe + 3 off-Stripe) | +15 |
 | 2 | **50 active members** | End of Q1, 31 Mar 2027 | 40 (if Goal 1 is hit) | +10 |
 
 ### What counts as an active member
@@ -14,7 +14,7 @@ A paying member on the count date, including:
 - 3-month and 6-month prepay members whose term is current (frozen for injury still counts)
 - Members paying outside Stripe
 
-Trialists, drop-ins and PT-only clients don't count.
+Trialists, drop-ins and PT-only clients don't count. Neither do paused weekly subscriptions or subscriptions that have never successfully paid. They count again once they're paying.
 
 ### How it's measured
 
@@ -40,23 +40,24 @@ Churn = subscriptions ended in the month ÷ (active at start of month + new that
 - **Last three months (Aug–Oct): 5.9% a month.** Churn has halved since July.
 - **12 of 18 cancellations (67%) were failed payments**, not members choosing to leave. Only 6 asked to cancel.
 - Members who did leave stayed a median of 52 days.
-- As of 25 Oct: 1 subscription is past due and 1 more has repeated failed charges. Both are at risk.
+- As of 25 Oct, 3 of the 25 open Stripe subscriptions aren't paying: 2 are paused and 1 is past due with 14 failed charges and no successful payment. Another 3 have had failed charges but are still paying.
+- The churn figures treat paused subscriptions as active, so true churn is slightly higher than shown.
 
 ## The realities of these goals
 
-**Goal 1: 40 by 31 Dec (about 9.5 weeks away, +12 net from 28)**
+**Goal 1: 40 by 31 Dec (about 9.5 weeks away, +15 net from 25)**
 
 | | At recent churn (6%) | At average churn (12%) |
 |---|---|---|
-| Members lost before 31 Dec | ~4–5 | ~9 |
-| Gross signups needed | ~17 | ~21 |
-| Signups needed per week | ~1.8 | ~2.2 |
-| Trials needed at 60–70% conversion | ~24–28 | ~30–35 |
-| Trials needed per week | ~2.5–3.0 | ~3.2–3.7 |
+| Members lost before 31 Dec | ~4 | ~8 |
+| Gross signups needed | ~19 | ~23 |
+| Signups needed per week | ~2.0 | ~2.4 |
+| Trials needed at 60–70% conversion | ~28–32 | ~33–38 |
+| Trials needed per week | ~3.0–3.4 | ~3.5–4.0 |
 
-- **Current pace is about 5 signups a month** (Aug 3, Sep 8, Oct 4 so far), or about 1.2 a week. Goal 1 needs about 1.5–2× that, every week, through December.
-- **At current pace you finish the year on about 34–35**, roughly 5–6 short.
-- Best month so far outside launch is September with 8. Goal 1 needs about 7–9 a month for November and December.
+- **Current pace is about 5 signups a month** (Aug 3, Sep 8, Oct 4 so far), or about 1.2 a week. Goal 1 needs roughly double that, every week, through December.
+- **At current pace you finish the year on about 31–32**, roughly 8 short. Winning back the 2 paused members gets you to about 33–34.
+- Best month so far outside launch is September with 8. Goal 1 needs about 8–10 a month for November and December.
 - December is the hardest stretch of the run: holidays, people leaving town, and lower intent to start something new.
 
 **Goal 2: 50 by 31 Mar 2027 (13 weeks after Goal 1)**
@@ -68,18 +69,19 @@ Churn = subscriptions ended in the month ÷ (active at start of month + new that
 | Signups needed per week | ~1.4 | ~2.0 |
 
 - Churn grows with the base. At 45 members, even 6% churn loses about 3 a month, so holding 50 takes about 3 signups a month just to stand still.
-- **At current pace you reach about 43–44 by end of March**, so Goal 2 is also out of reach without a step up in signups.
+- **At current pace you reach about 41 by end of March**, so Goal 2 is also out of reach without a step up in signups.
 - Goal 2 is still easier per week than Goal 1, and it gets the January New Year demand. It only stays easy if Goal 1 lands.
 
 ## What moves the numbers
 
-1. **Fix failed payments first.** Two-thirds of all churn so far is cards failing, not people quitting. Turn on Stripe's failed-payment emails and card-update links, and call anyone with a failed charge within 24 hours. Two members are at risk right now.
-2. **Trials are the lever you control.** Goal 1 needs about 3 trials booked every week from now to Christmas.
-3. **Prepay packages lock members through the holidays.** A 3-month or 6-month buyer can't churn in December or January.
+1. **Fix failed payments first.** Two-thirds of all churn so far is cards failing, not people quitting. Turn on Stripe's failed-payment emails and card-update links, and call anyone with a failed charge within 24 hours. One member has never paid and three more have had failed charges.
+2. **Trials are the lever you control.** Goal 1 needs about 3–4 trials booked every week from now to Christmas.
+3. **Restart the 2 paused members.** They're the cheapest 2 members you'll get: no trial, no conversion call, just a check-in on whether they're ready to come back.
+4. **Prepay packages lock members through the holidays.** A 3-month or 6-month buyer can't churn in December or January.
 
 ## Progress
 
 | Date | Active members | Notes |
 |------|------------------------:|-------|
 | 7 Oct 2026 | 25 total | Baseline, including 2 off-Stripe |
-| 25 Oct 2026 | 28 | 25 on Stripe (1 past due, 1 with repeated failed charges) + 3 off-Stripe |
+| 25 Oct 2026 | 25 | 22 paying on Stripe + 3 off-Stripe. Not counted: 2 paused, 1 past due |
