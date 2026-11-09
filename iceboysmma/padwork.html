@@ -19,6 +19,9 @@
     .pw ul.facts { list-style: none; padding: 0; margin: 0 0 1.75rem; }
     .pw ul.facts li { padding: .35rem 0; opacity: .9; }
     .pw ul.facts li::before { content: '✓'; color: var(--blue); font-weight: 700; margin-right: .6rem; }
+    .pw .price { border: 1px solid rgba(255,255,255,.12); border-radius: 10px; padding: 1rem 1.25rem; margin: 0 0 1.75rem; line-height: 1.55; }
+    .pw .price strong { font-size: 1.15rem; }
+    .pw .price span { display: block; opacity: .8; font-size: .92rem; margin-top: .2rem; }
     .pw form { background: var(--navy-light); border: 1px solid rgba(255,255,255,.08); border-left: 3px solid var(--blue); border-radius: 10px; padding: 1.5rem; }
     .pw label.f { display: block; font-weight: 600; font-size: .9rem; margin: 0 0 .4rem; }
     .pw input[type=text], .pw input[type=tel] { width: 100%; box-sizing: border-box; padding: .9rem 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,.15); background: var(--navy); color: #fff; margin-bottom: 1.1rem; font-family: inherit; }
@@ -51,9 +54,11 @@
     <ul class="facts">
       <li>Mon, Wed, Fri · 6–7am · starts Mon 16 Nov</li>
       <li>No sparring, no getting hit, no experience needed</li>
-      <li>First 16 people get their first week free</li>
+      <li>First 16 people to sign up get their first week free</li>
       <li>64 Cambridge Terrace, Te Aro</li>
     </ul>
+    <p class="price"><strong>After your free week: $55/week</strong>
+      <span>Full membership. Pad Work plus all 15 classes a week, so you can come to the evening classes too if you want to pick up fight skills.</span></p>
 
     <form id="pwForm" novalidate>
       <label class="f" for="name">Your name</label>
