@@ -52,7 +52,7 @@
     <h1><span>6am</span> Pad Work.<br />First week free.</h1>
     <p class="lead">Boxing, kickboxing and Muay Thai fundamentals on the pads. Real technique from a real fight gym.</p>
     <ul class="facts">
-      <li>Mon, Wed, Fri · 6–7am · starts Mon 16 Nov</li>
+      <li id="pwWhen">Mon, Wed, Fri · 6–7am · starts Mon 16 Nov</li>
       <li>No sparring, no getting hit, no experience needed</li>
       <li>First 16 people to sign up get their first week free</li>
       <li>64 Cambridge Terrace, Te Aro</li>
@@ -69,9 +69,9 @@
 
       <label class="f">Which morning do you want to start?</label>
       <div class="days">
-        <input type="radio" name="start" id="d-mon" value="Mon" /><label for="d-mon">Mon<small>16 Nov</small></label>
-        <input type="radio" name="start" id="d-wed" value="Wed" /><label for="d-wed">Wed<small>18 Nov</small></label>
-        <input type="radio" name="start" id="d-fri" value="Fri" /><label for="d-fri">Fri<small>20 Nov</small></label>
+        <input type="radio" name="start" id="d-mon" value="Mon" /><label for="d-mon">Mon<small data-dow="1">16 Nov</small></label>
+        <input type="radio" name="start" id="d-wed" value="Wed" /><label for="d-wed">Wed<small data-dow="3">18 Nov</small></label>
+        <input type="radio" name="start" id="d-fri" value="Fri" /><label for="d-fri">Fri<small data-dow="5">20 Nov</small></label>
       </div>
 
       <label class="f">Any combat sports experience?</label>
@@ -99,6 +99,21 @@
   </main>
 
   <script>
+    // Morning labels roll forward on their own: each shows the next class that day (never before the first class).
+    // Same rule as the Telegram bot's booking buttons, so the date on the form matches what Rossi books.
+    (function () {
+      var first = new Date(2026, 10, 16, 6, 0, 0), now = new Date();
+      var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      document.querySelectorAll('small[data-dow]').forEach(function (el) {
+        var dow = +el.getAttribute('data-dow');
+        var d = new Date(Math.max(now.getTime(), first.getTime()));
+        d.setHours(6, 0, 0, 0);
+        if (d < now || d < first) d.setDate(d.getDate() + 1);
+        while (d.getDay() !== dow || d < now || d < first) d.setDate(d.getDate() + 1);
+        el.textContent = d.getDate() + ' ' + months[d.getMonth()];
+      });
+      if (now >= first) document.getElementById('pwWhen').textContent = 'Mon, Wed, Fri · 6–7am';
+    })();
     (function () {
       var ENDPOINT = 'https://script.google.com/macros/s/AKfycbwa30dfi0dOBcby3s0s4plhx5NJ0VSvRi_E9OcaTkOfx4zaTVcYuxrx641EAALAuAJA/exec';
       var form = document.getElementById('pwForm');

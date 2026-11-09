@@ -187,7 +187,7 @@
           <h3>Monday</h3>
           <div class="class-row">
             <span class="time">06:00 – 07:00</span>
-            <span class="class-name">Pad Work <em>Starts 16 Nov</em></span>
+            <span class="class-name">Pad Work <em class="pw-start">Starts 16 Nov</em></span>
           </div>
           <div class="class-row">
             <span class="time">18:00 – 19:30</span>
@@ -219,7 +219,7 @@
           <h3>Wednesday</h3>
           <div class="class-row">
             <span class="time">06:00 – 07:00</span>
-            <span class="class-name">Pad Work <em>Starts 16 Nov</em></span>
+            <span class="class-name">Pad Work <em class="pw-start">Starts 16 Nov</em></span>
           </div>
           <div class="class-row">
             <span class="time">18:00 – 19:30</span>
@@ -251,7 +251,7 @@
           <h3>Friday</h3>
           <div class="class-row">
             <span class="time">06:00 – 07:00</span>
-            <span class="class-name">Pad Work <em>Starts 16 Nov</em></span>
+            <span class="class-name">Pad Work <em class="pw-start">Starts 16 Nov</em></span>
           </div>
           <div class="class-row">
             <span class="time">17:30 – 18:30</span>
@@ -503,5 +503,10 @@
   <span class="lightbox-counter" id="lightboxCounter"></span>
 </div>
 
+  <script>
+    // Pad Work "Starts 16 Nov" tag disappears once the first class has happened.
+    if (new Date() >= new Date(2026, 10, 16, 7, 0, 0))
+      document.querySelectorAll('.pw-start').forEach(function (el) { el.remove(); });
+  </script>
 </body>
 </html>
