@@ -22,6 +22,8 @@
     .pw form { background: var(--navy-light); border: 1px solid rgba(255,255,255,.08); border-left: 3px solid var(--blue); border-radius: 10px; padding: 1.5rem; }
     .pw label.f { display: block; font-weight: 600; font-size: .9rem; margin: 0 0 .4rem; }
     .pw input[type=text], .pw input[type=tel] { width: 100%; box-sizing: border-box; padding: .9rem 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,.15); background: var(--navy); color: #fff; margin-bottom: 1.1rem; font-family: inherit; }
+    .pw textarea { width: 100%; box-sizing: border-box; padding: .9rem 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,.15); background: var(--navy); color: #fff; margin-bottom: 1.4rem; font-family: inherit; resize: vertical; min-height: 84px; }
+    .pw textarea:focus { outline: 2px solid var(--blue); border-color: transparent; }
     .pw input:focus { outline: 2px solid var(--blue); border-color: transparent; }
     .pw .days { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; margin-bottom: 1.4rem; }
     .pw .days input { position: absolute; opacity: 0; pointer-events: none; }
@@ -66,6 +68,16 @@
         <input type="radio" name="start" id="d-fri" value="Fri" /><label for="d-fri">Fri<small>20 Nov</small></label>
       </div>
 
+      <label class="f">Any combat sports experience?</label>
+      <div class="days">
+        <input type="radio" name="exp" id="e-none" value="None" /><label for="e-none">None</label>
+        <input type="radio" name="exp" id="e-bit" value="A bit" /><label for="e-bit">A bit</label>
+        <input type="radio" name="exp" id="e-lots" value="Lots" /><label for="e-lots">Lots</label>
+      </div>
+
+      <label class="f" for="goal">What do you want to get out of it?</label>
+      <textarea id="goal" name="goal" maxlength="300" placeholder="e.g. get fitter, learn to throw a proper combo, try something new"></textarea>
+
       <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
       <button type="submit" id="pwBtn">Grab my spot</button>
@@ -96,9 +108,14 @@
         if (!name) { err.textContent = 'Add your name.'; form.name.focus(); return; }
         if (phone.replace(/\D/g, '').length < 8) { err.textContent = 'Add a mobile number we can call.'; form.phone.focus(); return; }
         if (!picked) { err.textContent = 'Pick a morning to start.'; return; }
+        var exp = form.querySelector('input[name=exp]:checked');
+        var goal = form.goal.value.trim();
+        if (!exp) { err.textContent = 'Tell us your experience level.'; return; }
+        if (!goal) { err.textContent = 'Tell us what you want to get out of it.'; form.goal.focus(); return; }
         btn.disabled = true; btn.textContent = 'Sending…';
         var url = ENDPOINT + '?name=' + encodeURIComponent(name) + '&phone=' + encodeURIComponent(phone) +
-                  '&offer=padwork&start=' + encodeURIComponent(picked.value);
+                  '&offer=padwork&start=' + encodeURIComponent(picked.value) +
+                  '&exp=' + encodeURIComponent(exp.value) + '&goal=' + encodeURIComponent(goal);
         fetch(url, { method: 'GET', mode: 'no-cors' })
           .then(function () {
             form.style.display = 'none';
