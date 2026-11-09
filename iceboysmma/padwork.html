@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6am Pad Work | Ice Boys MMA</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='32' font-size='32'>🧊</text></svg>" />
+  <meta name="description" content="6am Pad Work at Ice Boys MMA, Wellington. Boxing, kickboxing and Muay Thai on the pads. First week free." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .pw { max-width: 520px; margin: 0 auto; padding: 2.5rem 1.5rem 3rem; }
+    .pw .back { color: var(--blue-light); text-decoration: none; font-size: .9rem; }
+    .pw h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 12vw, 4.5rem); line-height: .95; margin: 1.25rem 0 .5rem; }
+    .pw h1 span { color: var(--blue); }
+    .pw .lead { opacity: .9; line-height: 1.6; margin-bottom: 1.25rem; }
+    .pw ul.facts { list-style: none; padding: 0; margin: 0 0 1.75rem; }
+    .pw ul.facts li { padding: .35rem 0; opacity: .9; }
+    .pw ul.facts li::before { content: '✓'; color: var(--blue); font-weight: 700; margin-right: .6rem; }
+    .pw form { background: var(--navy-light); border: 1px solid rgba(255,255,255,.08); border-left: 3px solid var(--blue); border-radius: 10px; padding: 1.5rem; }
+    .pw label.f { display: block; font-weight: 600; font-size: .9rem; margin: 0 0 .4rem; }
+    .pw input[type=text], .pw input[type=tel] { width: 100%; box-sizing: border-box; padding: .9rem 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,.15); background: var(--navy); color: #fff; margin-bottom: 1.1rem; font-family: inherit; }
+    .pw input:focus { outline: 2px solid var(--blue); border-color: transparent; }
+    .pw .days { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; margin-bottom: 1.4rem; }
+    .pw .days input { position: absolute; opacity: 0; pointer-events: none; }
+    .pw .days label { display: block; text-align: center; padding: .85rem .25rem; border-radius: 8px; border: 1px solid rgba(255,255,255,.15); cursor: pointer; font-weight: 600; line-height: 1.25; }
+    .pw .days label small { display: block; font-weight: 400; opacity: .7; font-size: .8rem; }
+    .pw .days input:checked + label { background: var(--blue); border-color: var(--blue); color: #fff; }
+    .pw .days input:checked + label small { opacity: .95; }
+    .pw button { width: 100%; padding: 1rem; font-size: 1.05rem; font-weight: 700; letter-spacing: .03em; border: 0; border-radius: 8px; background: var(--blue); color: #fff; cursor: pointer; font-family: inherit; }
+    .pw button:disabled { opacity: .6; cursor: default; }
+    .pw .err { color: #ff8a8a; font-size: .9rem; margin: .75rem 0 0; min-height: 1.2em; }
+    .pw .small { font-size: .8rem; opacity: .6; margin-top: 1rem; line-height: 1.5; }
+    .pw .small a { color: var(--blue-light); }
+    .pw .hp { position: absolute; left: -9999px; }
+    .pw .done { display: none; text-align: center; padding: 2rem 1.5rem; background: var(--navy-light); border-radius: 10px; border-left: 3px solid var(--blue); }
+    .pw .done h2 { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; margin: 0 0 .5rem; }
+    .pw .done p { line-height: 1.6; opacity: .9; }
+  </style>
+</head>
+<body>
+  <main class="pw">
+    <a href="/" class="back">&larr; Ice Boys MMA</a>
+    <h1><span>6am</span> Pad Work.<br />First week free.</h1>
+    <p class="lead">Boxing, kickboxing and Muay Thai fundamentals on the pads. Real technique from a real fight gym.</p>
+    <ul class="facts">
+      <li>Mon, Wed, Fri · 6–7am · starts Mon 16 Nov</li>
+      <li>No sparring, no getting hit, no experience needed</li>
+      <li>First 16 people get their first week free</li>
+      <li>64 Cambridge Terrace, Te Aro</li>
+    </ul>
+
+    <form id="pwForm" novalidate>
+      <label class="f" for="name">Your name</label>
+      <input type="text" id="name" name="name" autocomplete="name" required />
+
+      <label class="f" for="phone">Mobile number</label>
+      <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="021 123 4567" required />
+
+      <label class="f">Which morning do you want to start?</label>
+      <div class="days">
+        <input type="radio" name="start" id="d-mon" value="Mon" /><label for="d-mon">Mon<small>16 Nov</small></label>
+        <input type="radio" name="start" id="d-wed" value="Wed" /><label for="d-wed">Wed<small>18 Nov</small></label>
+        <input type="radio" name="start" id="d-fri" value="Fri" /><label for="d-fri">Fri<small>20 Nov</small></label>
+      </div>
+
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <button type="submit" id="pwBtn">Grab my spot</button>
+      <p class="err" id="pwErr" role="alert"></p>
+      <p class="small">We'll call you to lock in your morning. See our <a href="privacy.html">privacy policy</a>.</p>
+    </form>
+
+    <div class="done" id="pwDone">
+      <h2>You're in 🥊</h2>
+      <p>We'll call you shortly to lock in your morning.</p>
+      <p>Classes run 6–7am at 64 Cambridge Terrace, Te Aro. Aim to arrive at 5:50, wear something you can move in and bring water.</p>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var ENDPOINT = 'https://script.google.com/macros/s/AKfycbwa30dfi0dOBcby3s0s4plhx5NJ0VSvRi_E9OcaTkOfx4zaTVcYuxrx641EAALAuAJA/exec';
+      var form = document.getElementById('pwForm');
+      var btn = document.getElementById('pwBtn');
+      var err = document.getElementById('pwErr');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        err.textContent = '';
+        var name = form.name.value.trim();
+        var phone = form.phone.value.trim();
+        var picked = form.querySelector('input[name=start]:checked');
+        if (form.website.value) return; // bot trap
+        if (!name) { err.textContent = 'Add your name.'; form.name.focus(); return; }
+        if (phone.replace(/\D/g, '').length < 8) { err.textContent = 'Add a mobile number we can call.'; form.phone.focus(); return; }
+        if (!picked) { err.textContent = 'Pick a morning to start.'; return; }
+        btn.disabled = true; btn.textContent = 'Sending…';
+        var url = ENDPOINT + '?name=' + encodeURIComponent(name) + '&phone=' + encodeURIComponent(phone) +
+                  '&offer=padwork&start=' + encodeURIComponent(picked.value);
+        fetch(url, { method: 'GET', mode: 'no-cors' })
+          .then(function () {
+            form.style.display = 'none';
+            document.getElementById('pwDone').style.display = 'block';
+            window.scrollTo(0, 0);
+          })
+          .catch(function () {
+            btn.disabled = false; btn.textContent = 'Grab my spot';
+            err.textContent = 'That didn’t send. Check your connection and try again, or text 027 392 9153.';
+          });
+      });
+    })();
+  </script>
+</body>
+</html>
